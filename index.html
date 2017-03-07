@@ -47,7 +47,7 @@
 				<h1 class="site-name"><a href="/" title="The blog of Huangjing">The blog of Huangjing</a></h1>
 				<h2 class="blog-motto">生命当如花盛开，莫让心志埋尘埃</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -63,7 +63,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,6 +81,79 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/03/07/ES6基本知识点/" title="ES6基本知识点" itemprop="url">ES6基本知识点</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-07T11:43:21.288Z" itemprop="datePublished"> 发表于 2017-03-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="一、var-const-let的区别"><a href="#一、var-const-let的区别" class="headerlink" title="一、var,const,let的区别"></a>一、var,const,let的区别</h2><p>1.var： 没用块级作用域，变量声明提升（可以先使用再声明变量），未用var声明的变量会被添加一个全局作用域，而用var声明的变量作用域是当前上下文。</p>
+<p>2.const：const用来声明常量，一旦声明，其值就不能改变，所以用const声明变量时必须立即初始化。</p>
+<p> const声明的常量具有块级作用域，不允许重复声明常量，不存在常量提升。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const PI = 3.14;</span><br><span class="line">PI    // 3.14</span><br><span class="line"></span><br><span class="line">PI = 3;</span><br><span class="line">// TypeError: &quot;PI&quot; is read-only</span><br><span class="line">// const声明常量时立即赋值，后面不能改变它的值</span><br></pre></td></tr></table></figure>
+<p>3.let： let声明的变量也具有块级作用域，不允许重复声明变量，不存在变量提升。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    let a = 10;    // a只在let命令所在的代码块内有效</span><br><span class="line">    var b = 1；        </span><br><span class="line">&#125;</span><br><span class="line">a    // ReferenceError: a is not defined</span><br><span class="line">b    // 1</span><br></pre></td></tr></table></figure>
+<h2 id="二、数值的扩展"><a href="#二、数值的扩展" class="headerlink" title="二、数值的扩展"></a>二、数值的扩展</h2><p>1.二进制和八进制分别用前缀0b（或0B）和0o（或0O）表示</p>
+<p>2.ES6在Number对象上提供了Number.isFinite()和Number.isNaN()方法，用来检查Infinite和NaN这两个特殊值。</p>
+<p>Number.isFinite()和Number.isNaN()这两个新方法和传统的全局方法isFinite()和isNaN()的区别：<br>传统方法先调用Number()将非数值转化为数值再进行判断，而新方法只对数值有效，对非数值一律返回false。</p>
+<p>3.<em>Number.isInteger()用来判断一个值是否为整数。</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意： 在JavaScript内部，整数和浮点数是同样的储存方法，3.0和3视为同一个值</span><br></pre></td></tr></table></figure>
+<p>4.安全整数和Number.isSafeInteger()</p>
+<p>安全整数范围：-2^{53}——2^{53}（不含两个端点）</p>
+<p>5.Math对象的扩展</p>
+<p><em>Math.trunc()用于去除一个数的小数部分，返回整数部分</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Math.trunc(5.8)    // 5</span><br><span class="line">Math.trunc(-4.9)    // -4</span><br></pre></td></tr></table></figure>
+<p>Math.sign()用于判断一个数是正数、复数、零</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">正数    返回+1</span><br><span class="line">复数    返回-1</span><br><span class="line">0        返回0</span><br><span class="line">-0       返回-0</span><br><span class="line">其他值  返回NaN</span><br></pre></td></tr></table></figure>
+<p>Math.cbrt()计算一个数的立方根<br>Math.clz32()返回一个数的32位无符号整数形式有多少个前导0<br>Math.imul()返回两个数以32位带符号整数相乘的结果，结果也为32位带符号整数<br>Math.fround()返回一个数的单精度浮点数形式<br>Math.hypot()返回所有参数的平方和的平方根</p>
+<h2 id="三、箭头函数"><a href="#三、箭头函数" class="headerlink" title="三、箭头函数"></a>三、箭头函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var f = v =&gt; v;</span><br><span class="line">// 等同于 </span><br><span class="line">var f = function(v) &#123;</span><br><span class="line">    return v;  </span><br><span class="line">&#125;</span><br><span class="line">var sum = (num1, num2) =&gt; num1 + num2;</span><br><span class="line">// 等同于 </span><br><span class="line">var sum = function(num1, num2) &#123;</span><br><span class="line">    return num1+num2;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2017/03/07/ES6基本知识点/#comments" class="ds-thread-count comments-count-link" data-thread-key="2017/03/07/ES6基本知识点/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/02/17/上传项目到github上/" title="上传项目到github上" itemprop="url">上传项目到github上</a>
   </h1>
   <p class="article-author">By
@@ -88,7 +161,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-17T12:19:11.144Z" itemprop="datePublished"> Published 2017-02-17</time>
+    <time datetime="2017-02-17T12:19:11.144Z" itemprop="datePublished"> 发表于 2017-02-17</time>
     
   </p>
 </header>
@@ -159,7 +232,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-22T13:16:52.469Z" itemprop="datePublished"> Published 2016-11-22</time>
+    <time datetime="2016-11-22T13:16:52.469Z" itemprop="datePublished"> 发表于 2016-11-22</time>
     
   </p>
 </header>
@@ -214,7 +287,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-22T13:03:39.994Z" itemprop="datePublished"> Published 2016-11-22</time>
+    <time datetime="2016-11-22T13:03:39.994Z" itemprop="datePublished"> 发表于 2016-11-22</time>
     
   </p>
 </header>
@@ -278,7 +351,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-26T08:14:16.643Z" itemprop="datePublished"> Published 2016-07-26</time>
+    <time datetime="2016-07-26T08:14:16.643Z" itemprop="datePublished"> 发表于 2016-07-26</time>
     
   </p>
 </header>
@@ -385,7 +458,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-25T11:37:03.896Z" itemprop="datePublished"> Published 2016-07-25</time>
+    <time datetime="2016-07-25T11:37:03.896Z" itemprop="datePublished"> 发表于 2016-07-25</time>
     
   </p>
 </header>
@@ -483,7 +556,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-17T03:41:20.688Z" itemprop="datePublished"> Published 2016-04-17</time>
+    <time datetime="2016-04-17T03:41:20.688Z" itemprop="datePublished"> 发表于 2016-04-17</time>
     
   </p>
 </header>
@@ -537,7 +610,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-17T03:12:36.700Z" itemprop="datePublished"> Published 2016-04-17</time>
+    <time datetime="2016-04-17T03:12:36.700Z" itemprop="datePublished"> 发表于 2016-04-17</time>
     
   </p>
 </header>
@@ -588,15 +661,15 @@
 
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="OZTO" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -609,7 +682,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -631,11 +704,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -791,7 +864,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
