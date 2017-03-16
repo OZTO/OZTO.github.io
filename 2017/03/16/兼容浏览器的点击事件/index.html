@@ -4,47 +4,43 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>上传项目到github上 | The blog of Huangjing</title>
+    <title>兼容浏览器的点击事件 | The blog of Huangjing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Huangjing">
     
 
     
-    <meta name="description" content="找到要上传项目的根目录，右击git bush进入git命令行
-输入git init , 目录下会产生.git的隐藏项目
-
-输入git add . 命令（注意add与 . 之间有空格）
-. 是指添加到该目录下的所有文件，也可以添加特定文件
-
-提交到本地仓库    git commit -m “description for this commit”
-
-上传代码   git remote add o">
+    <meta name="description" content="IE和其他浏览器在一些方法上存在差异：
+1.获取事件，IE通过window.event
+2.获取触发事件的节点   W3C标准: e.target  
+　　　　　　　　　　　IE: e.srcElement;
+3.阻止冒泡  W3C标准：stopPropagation()
+　　　　　　IE中： cancelBubble = true;
+4.阻止默认操作  W3C标准： preventDefaul">
 <meta property="og:type" content="article">
-<meta property="og:title" content="上传项目到github上">
-<meta property="og:url" content="http://yoursite.com/2017/02/17/上传项目到github上/index.html">
+<meta property="og:title" content="兼容浏览器的点击事件">
+<meta property="og:url" content="http://yoursite.com/2017/03/16/兼容浏览器的点击事件/index.html">
 <meta property="og:site_name" content="The blog of Huangjing">
-<meta property="og:description" content="找到要上传项目的根目录，右击git bush进入git命令行
-输入git init , 目录下会产生.git的隐藏项目
-
-输入git add . 命令（注意add与 . 之间有空格）
-. 是指添加到该目录下的所有文件，也可以添加特定文件
-
-提交到本地仓库    git commit -m “description for this commit”
-
-上传代码   git remote add o">
-<meta property="og:updated_time" content="2017-02-17T12:28:19.882Z">
+<meta property="og:description" content="IE和其他浏览器在一些方法上存在差异：
+1.获取事件，IE通过window.event
+2.获取触发事件的节点   W3C标准: e.target  
+　　　　　　　　　　　IE: e.srcElement;
+3.阻止冒泡  W3C标准：stopPropagation()
+　　　　　　IE中： cancelBubble = true;
+4.阻止默认操作  W3C标准： preventDefaul">
+<meta property="og:image" content="http://yoursite.com/xiaoguo.png">
+<meta property="og:updated_time" content="2017-03-16T13:31:13.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="上传项目到github上">
-<meta name="twitter:description" content="找到要上传项目的根目录，右击git bush进入git命令行
-输入git init , 目录下会产生.git的隐藏项目
-
-输入git add . 命令（注意add与 . 之间有空格）
-. 是指添加到该目录下的所有文件，也可以添加特定文件
-
-提交到本地仓库    git commit -m “description for this commit”
-
-上传代码   git remote add o">
+<meta name="twitter:title" content="兼容浏览器的点击事件">
+<meta name="twitter:description" content="IE和其他浏览器在一些方法上存在差异：
+1.获取事件，IE通过window.event
+2.获取触发事件的节点   W3C标准: e.target  
+　　　　　　　　　　　IE: e.srcElement;
+3.阻止冒泡  W3C标准：stopPropagation()
+　　　　　　IE中： cancelBubble = true;
+4.阻止默认操作  W3C标准： preventDefaul">
+<meta name="twitter:image" content="http://yoursite.com/xiaoguo.png">
 
     
     <link rel="alternative" href="/atom.xml" title="The blog of Huangjing" type="application/atom+xml">
@@ -104,14 +100,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/17/上传项目到github上/" title="上传项目到github上" itemprop="url">上传项目到github上</a>
+      <a href="/2017/03/16/兼容浏览器的点击事件/" title="兼容浏览器的点击事件" itemprop="url">兼容浏览器的点击事件</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-17T12:19:11.144Z" itemprop="datePublished"> Published 2017-02-17</time>
+    <time datetime="2017-03-16T13:26:16.888Z" itemprop="datePublished"> Published 2017-03-16</time>
     
   </p>
 </header>
@@ -120,28 +116,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行效果（每点击一次值加1）"><span class="toc-number">1.</span> <span class="toc-text">运行效果（每点击一次值加1）</span></a></li></ol>
 		
 		</div>
 		
-		<ul>
-<li><p>找到要上传项目的根目录，右击git bush进入git命令行</p>
-<p>输入git init , 目录下会产生.git的隐藏项目</p>
-</li>
-<li><p>输入git add . 命令（注意add与 . 之间有空格）</p>
-<p>. 是指添加到该目录下的所有文件，也可以添加特定文件</p>
-</li>
-<li><p>提交到本地仓库    git commit -m “description for this commit”</p>
-</li>
-<li><p>上传代码   git remote add origin <a href="https://github.com/用户名/项目名.git" target="_blank" rel="external">https://github.com/用户名/项目名.git</a>  (可以去github网站复制该项目的远程仓库地址)</p>
-</li>
-<li><p>git pull origin master 把远程服务器github上的文件拉开</p>
-</li>
-<li><p>git push origin master  把项目上传到远程仓库</p>
-<p>​</p>
-<p>​</p>
-</li>
-</ul>
+		<p> IE和其他浏览器在一些方法上存在差异：</p>
+<p>1.获取事件，IE通过window.event</p>
+<p>2.获取触发事件的节点   W3C标准: e.target  </p>
+<p>　　　　　　　　　　　IE: e.srcElement;</p>
+<p>3.阻止冒泡  W3C标准：stopPropagation()</p>
+<p>　　　　　　IE中： cancelBubble = true;</p>
+<p>4.阻止默认操作  W3C标准： preventDefault()</p>
+<p>　　　　　　　　IE中： returnValue = false;</p>
+<p>5.事件监听  W3C标准： document.addEventListener(‘click’, func, false)</p>
+<p>　　　　　  IE中： document.attachEvent(‘click’, func)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id=&quot;clickme&quot;&gt;Click me: 9&lt;/button&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">        function myHandler(e) &#123;</span><br><span class="line">            var src, parts;</span><br><span class="line"></span><br><span class="line">            // 获取事件和触发事件的节点</span><br><span class="line">            e = e || window.event;</span><br><span class="line">            target = e.target || e.srcElement;</span><br><span class="line"></span><br><span class="line">            // 实际工作</span><br><span class="line">            parts = target.innerHTML.split(&quot;: &quot;);</span><br><span class="line">            parts[1] = parseInt(parts[1], 10)+1;</span><br><span class="line">            target.innerHTML = parts[0] + &quot;: &quot; + parts[1];</span><br><span class="line"></span><br><span class="line">            // 阻止冒泡</span><br><span class="line">            if (typeof e.stopPropagation === &quot;function&quot;) &#123;</span><br><span class="line">                e.stopPropagation();</span><br><span class="line">            &#125;</span><br><span class="line">            if (typeof e.cancelBubble !== &quot;undefined&quot;) &#123;</span><br><span class="line">                e.cancelBubble = true;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //阻止默认操作</span><br><span class="line">            if (typeof e.preventDefault === &quot;function&quot;) &#123;</span><br><span class="line">                e.preventDefault();</span><br><span class="line">            &#125;</span><br><span class="line">            if (typeof e.returnValue !== &quot;undefined&quot;) &#123;</span><br><span class="line">                e.returnValue = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var clickMe = document.getElementById(&apos;clickme&apos;);</span><br><span class="line">        if (document.addEventListener) &#123; // 一般浏览器</span><br><span class="line">            clickMe.addEventListener(&apos;click&apos;, myHandler, false);</span><br><span class="line">        &#125; else if (document.attachEvent) &#123; // IE</span><br><span class="line">            clickMe.attach(&apos;click&apos;,myHandler);</span><br><span class="line">        &#125; else &#123; // last resort</span><br><span class="line">            clickMe.onclick = myHandler;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="运行效果（每点击一次值加1）"><a href="#运行效果（每点击一次值加1）" class="headerlink" title="运行效果（每点击一次值加1）"></a>运行效果（每点击一次值加1）</h2><p><img src="xiaoguo.png" alt="运行结果"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -154,7 +144,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/02/17/上传项目到github上/" data-title="上传项目到github上 | The blog of Huangjing" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/03/16/兼容浏览器的点击事件/" data-title="兼容浏览器的点击事件 | The blog of Huangjing" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -167,19 +157,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/07/ES6基本知识点/" title="ES6基本知识点">
-  <strong>上一篇：</strong><br/>
-  <span>
-  ES6基本知识点</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/11/22/操作系统常用快捷键/"  title="操作系统常用快捷键">
+<a href="/2017/03/07/ES6基本知识点/"  title="ES6基本知识点">
  <strong>下一篇：</strong><br/> 
- <span>操作系统常用快捷键
+ <span>ES6基本知识点
 </span>
 </a>
 </div>
@@ -188,7 +170,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/02/17/上传项目到github上/" data-title="上传项目到github上" data-url="http://yoursite.com/2017/02/17/上传项目到github上/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/16/兼容浏览器的点击事件/" data-title="兼容浏览器的点击事件" data-url="http://yoursite.com/2017/03/16/兼容浏览器的点击事件/"></div>
 </section>
 
 
@@ -198,7 +180,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行效果（每点击一次值加1）"><span class="toc-number">1.</span> <span class="toc-text">运行效果（每点击一次值加1）</span></a></li></ol>
  
   </div>
 
