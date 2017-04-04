@@ -47,7 +47,7 @@
 				<h1 class="site-name"><a href="/" title="The blog of Huangjing">The blog of Huangjing</a></h1>
 				<h2 class="blog-motto">生命当如花盛开，莫让心志埋尘埃</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -63,7 +63,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,6 +81,63 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/04/04/canvas绘制简单的时钟/" title="使用 canvas+JS绘制钟表" itemprop="url">使用 canvas+JS绘制钟表</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-04T11:48:56.503Z" itemprop="datePublished"> Published 2017-04-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>效果图如下：</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/005BC96ngy1feaw4to72rj30ez0ebweq.jpg" alt="效果图"></p>
+<p>附上代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>使用Canvas绘制钟表<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span><br><span class="line">		body &#123;</span><br><span class="line">			background-color: pink;</span><br><span class="line">		&#125;</span><br><span class="line">		#clock &#123;</span><br><span class="line">			display: block;</span><br><span class="line">			margin: auto;</span><br><span class="line">			margin-top: 100px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span><br><span class="line">	window.onload = function() &#123;</span><br><span class="line">		var drawing = document.getElementById("clock");</span><br><span class="line">		var context = drawing.getContext("2d");</span><br><span class="line">		function drawClock() &#123;</span><br><span class="line">			context.clearRect(0, 0, drawing.width, drawing.height);</span><br><span class="line"></span><br><span class="line">			var circleX = 200;	// 圆心X坐标</span><br><span class="line">			var circleY = 200;	// 圆心Y坐标</span><br><span class="line">			var radius = 190;	// 半径长度</span><br><span class="line"></span><br><span class="line">			// 获取时间信息</span><br><span class="line">			var date = new Date();</span><br><span class="line">			var hour = date.getHours();</span><br><span class="line">			var min = date.getMinutes();</span><br><span class="line">			var sec = date.getSeconds();</span><br><span class="line"></span><br><span class="line">			// 分针走一圈60度，时针走30度</span><br><span class="line">			// 度数转化为弧度  度数*Math.PI/180</span><br><span class="line">			var hourValue = (-90+30*hour+min/2)*Math.PI/180;</span><br><span class="line">			var minValue = (-90+6*min)*Math.PI/180;</span><br><span class="line">			var secValue = (-90+6*sec)*Math.PI/180;</span><br><span class="line"></span><br><span class="line">			// 绘制表盘</span><br><span class="line">			context.beginPath();</span><br><span class="line">			context.font = "bold 16px Arial";</span><br><span class="line">			context.lineWidth = '3';</span><br><span class="line">			for(var i=0;i<span class="tag">&lt;<span class="name">12;i++)</span> &#123;</span><br><span class="line">                <span class="attr">context.moveTo</span>(<span class="attr">circleX</span>,<span class="attr">circleY</span>);</span><br><span class="line">                <span class="attr">context.arc</span>(<span class="attr">circleX</span>,<span class="attr">circleY</span>,<span class="attr">radius</span>,<span class="attr">30</span>*<span class="attr">i</span>*<span class="attr">Math.PI</span>/<span class="attr">180</span>,<span class="attr">30</span>*(<span class="attr">i</span>+<span class="attr">1</span>)*<span class="attr">Math.PI</span>/<span class="attr">180</span>,<span class="attr">false</span>); </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="attr">context.stroke</span>();</span><br><span class="line"></span><br><span class="line">            <span class="attr">context.fillStyle</span>=<span class="string">'#0ff'</span>;</span><br><span class="line">            <span class="attr">context.beginPath</span>();</span><br><span class="line">            <span class="attr">context.moveTo</span>(<span class="attr">circleX</span>,<span class="attr">circleY</span>);</span><br><span class="line">            <span class="attr">context.arc</span>(<span class="attr">circleX</span>,<span class="attr">circleY</span>,<span class="attr">radius</span>*<span class="attr">19</span>/<span class="attr">20</span>,<span class="attr">0</span>,<span class="attr">360</span>*<span class="attr">Math.PI</span>/<span class="attr">180</span>,<span class="attr">false</span>);</span><br><span class="line">            <span class="attr">context.closePath</span>();</span><br><span class="line">            <span class="attr">context.fill</span>();</span><br><span class="line"></span><br><span class="line">            // 绘制钟表中心</span><br><span class="line">			<span class="attr">context.beginPath</span>();</span><br><span class="line">			<span class="attr">context.arc</span>(<span class="attr">200</span>,<span class="attr">200</span>,<span class="attr">6</span>,<span class="attr">0</span>,<span class="attr">360</span>,<span class="attr">false</span>);</span><br><span class="line">			<span class="attr">context.fillStyle</span> = <span class="string">"#000"</span>;</span><br><span class="line">			<span class="attr">context.fill</span>();//画实心圆</span><br><span class="line">			<span class="attr">context.closePath</span>();</span><br><span class="line"></span><br><span class="line">			// 绘制时针刻度</span><br><span class="line">			<span class="attr">context.lineWidth</span> = <span class="string">'5'</span>;</span><br><span class="line">			<span class="attr">context.beginPath</span>();</span><br><span class="line">			<span class="attr">context.moveTo</span>(<span class="attr">circleX</span>, <span class="attr">circleY</span>);</span><br><span class="line">			<span class="attr">context.arc</span>(<span class="attr">circleX</span>, <span class="attr">circleY</span>, <span class="attr">radius</span>*<span class="attr">9</span>/<span class="attr">20</span>, <span class="attr">hourValue</span>, <span class="attr">hourValue</span>, <span class="attr">false</span>);</span><br><span class="line">			<span class="attr">context.stroke</span>();</span><br><span class="line"></span><br><span class="line">			// 绘制分针</span><br><span class="line">			<span class="attr">context.lineWidth</span> = <span class="string">'3'</span>;</span><br><span class="line">			<span class="attr">context.beginPath</span>();</span><br><span class="line">			<span class="attr">context.moveTo</span>(<span class="attr">circleX</span>, <span class="attr">circleY</span>);</span><br><span class="line">			<span class="attr">context.arc</span>(<span class="attr">circleX</span>, <span class="attr">circleY</span>, <span class="attr">radius</span>*<span class="attr">13</span>/<span class="attr">20</span>, <span class="attr">minValue</span>, <span class="attr">minValue</span>, <span class="attr">false</span>);</span><br><span class="line">			<span class="attr">context.stroke</span>();</span><br><span class="line">            </span><br><span class="line">			// 绘制秒针</span><br><span class="line">			<span class="attr">context.lineWidth</span> = <span class="string">'1'</span>;</span><br><span class="line">			<span class="attr">context.beginPath</span>();</span><br><span class="line">			<span class="attr">context.moveTo</span>(<span class="attr">circleX</span>, <span class="attr">circleY</span>);</span><br><span class="line">			<span class="attr">context.arc</span>(<span class="attr">circleX</span>, <span class="attr">circleY</span>, <span class="attr">radius</span>*<span class="attr">18</span>/<span class="attr">20</span>, <span class="attr">secValue</span>, <span class="attr">secValue</span>, <span class="attr">false</span>);</span><br><span class="line">			<span class="attr">context.stroke</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			// 绘制钟表的数字</span><br><span class="line">			<span class="attr">context.fillStyle</span> = <span class="string">"#0ad"</span>;</span><br><span class="line">			<span class="attr">context.fillText</span>("<span class="attr">12</span>", <span class="attr">190</span>, <span class="attr">34</span>);</span><br><span class="line">			<span class="attr">context.fillText</span>("<span class="attr">3</span>", <span class="attr">370</span>, <span class="attr">206</span>);</span><br><span class="line">			<span class="attr">context.fillText</span>("<span class="attr">6</span>", <span class="attr">196</span>, <span class="attr">378</span>);</span><br><span class="line">			<span class="attr">context.fillText</span>("<span class="attr">9</span>", <span class="attr">22</span>, <span class="attr">206</span>);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="attr">setInterval</span>(<span class="attr">drawClock</span>, <span class="attr">1000</span>);</span><br><span class="line">		<span class="attr">drawClock</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"clock"</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"400"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span>&gt;</span>你的浏览器不支持canvas元素，换个浏览器试试吧<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2017/04/04/canvas绘制简单的时钟/#comments" class="ds-thread-count comments-count-link" data-thread-key="2017/04/04/canvas绘制简单的时钟/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/04/01/JS 操作数组的方法/" title="JS 操作数组的方法" itemprop="url">JS 操作数组的方法</a>
   </h1>
   <p class="article-author">By
@@ -88,7 +145,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-01T04:32:08.116Z" itemprop="datePublished"> 发表于 2017-04-01</time>
+    <time datetime="2017-04-01T04:32:08.116Z" itemprop="datePublished"> Published 2017-04-01</time>
     
   </p>
 </header>
@@ -172,7 +229,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-16T13:26:16.888Z" itemprop="datePublished"> 发表于 2017-03-16</time>
+    <time datetime="2017-03-16T13:26:16.888Z" itemprop="datePublished"> Published 2017-03-16</time>
     
   </p>
 </header>
@@ -237,7 +294,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-07T11:43:21.288Z" itemprop="datePublished"> 发表于 2017-03-07</time>
+    <time datetime="2017-03-07T11:43:21.288Z" itemprop="datePublished"> Published 2017-03-07</time>
     
   </p>
 </header>
@@ -310,7 +367,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-17T12:19:11.144Z" itemprop="datePublished"> 发表于 2017-02-17</time>
+    <time datetime="2017-02-17T12:19:11.144Z" itemprop="datePublished"> Published 2017-02-17</time>
     
   </p>
 </header>
@@ -381,7 +438,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-22T13:16:52.469Z" itemprop="datePublished"> 发表于 2016-11-22</time>
+    <time datetime="2016-11-22T13:16:52.469Z" itemprop="datePublished"> Published 2016-11-22</time>
     
   </p>
 </header>
@@ -436,7 +493,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-22T13:03:39.994Z" itemprop="datePublished"> 发表于 2016-11-22</time>
+    <time datetime="2016-11-22T13:03:39.994Z" itemprop="datePublished"> Published 2016-11-22</time>
     
   </p>
 </header>
@@ -500,7 +557,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-26T08:14:16.643Z" itemprop="datePublished"> 发表于 2016-07-26</time>
+    <time datetime="2016-07-26T08:14:16.643Z" itemprop="datePublished"> Published 2016-07-26</time>
     
   </p>
 </header>
@@ -607,7 +664,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-25T11:37:03.896Z" itemprop="datePublished"> 发表于 2016-07-25</time>
+    <time datetime="2016-07-25T11:37:03.896Z" itemprop="datePublished"> Published 2016-07-25</time>
     
   </p>
 </header>
@@ -705,7 +762,7 @@
 		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-17T03:41:20.688Z" itemprop="datePublished"> 发表于 2016-04-17</time>
+    <time datetime="2016-04-17T03:41:20.688Z" itemprop="datePublished"> Published 2016-04-17</time>
     
   </p>
 </header>
@@ -746,79 +803,21 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/17/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Huangjing" target="_blank" itemprop="author">Huangjing</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-17T03:12:36.700Z" itemprop="datePublished"> 发表于 2016-04-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/04/17/hello-world/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/17/hello-world/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="OZTO" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -831,7 +830,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -853,11 +852,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -1013,7 +1012,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
